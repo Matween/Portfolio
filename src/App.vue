@@ -2,6 +2,35 @@
 <div class="content">
     <Sidebar />
     <Content />
+
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
 </div>
 </template>
 
@@ -18,10 +47,16 @@ export default {
 </script>
 
 <style lang="scss">
+body,
+html {
+    overflow-x: hidden;
+}
+
 .content {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 #app {
@@ -35,14 +70,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    overflow-x: hidden;
 }
 
 $particleSize: 20vmin;
 $animationDuration: 6s;
 $amount: 20;
 
-body .particle {
+.content .particle {
+    z-index: -1;
     width: $particleSize;
     height: $particleSize;
     border-radius: $particleSize;
