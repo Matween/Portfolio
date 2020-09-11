@@ -72,6 +72,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+html,
 body {
     background-image: url('https://images.pexels.com/photos/266451/pexels-photo-266451.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
     background-repeat: no-repeat;
