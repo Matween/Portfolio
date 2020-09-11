@@ -47,6 +47,13 @@ export default {
 </script>
 
 <style lang="scss">
+@media (max-width: 1200px) {
+    html {
+        height: calc(100% + 60px);
+        min-height: calc(100% + 60px);
+    }
+}
+
 body,
 html {
     overflow-x: hidden;
@@ -66,7 +73,7 @@ html {
 }
 
 body {
-    background: url('https://images.pexels.com/photos/266451/pexels-photo-266451.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    background-image: url('https://images.pexels.com/photos/266451/pexels-photo-266451.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
