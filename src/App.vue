@@ -48,9 +48,11 @@ export default {
 
 <style lang="scss">
 @media (max-width: 1200px) {
-    html {
-        height: calc(100% + 60px);
-        min-height: calc(100% + 60px);
+
+    html,
+    body {
+        height: calc(100vh + 60px);
+        min-height: calc(100vh + 60px);
     }
 }
 
