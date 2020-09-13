@@ -25,10 +25,6 @@ export default {
     }
 }
 
-.image-tile {
-    margin-top: 3em;
-}
-
 .image-round {
     width: 9vw;
     height: 9vw;

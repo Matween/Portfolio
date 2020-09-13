@@ -57,12 +57,12 @@ export default {
 <style>
 @media (max-width: 1200px) {
     .blog-posts-col {
-        width: 100% !important;
+        width: 90% !important;
     }
 }
 
 .blog-posts {
-    margin: 2em;
+    margin: 3em;
 }
 
 .title {

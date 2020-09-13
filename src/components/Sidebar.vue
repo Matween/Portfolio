@@ -56,27 +56,26 @@ export default {
 <style lang="scss">
 @media (max-width: 1200px) {
     aside {
-        width: 100vw !important;
-        float: none !important;
+        min-width: 100vw !important;
+        float: left !important;
         position: absolute !important;
-        overflow-x: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
 
-    body {
-        overflow-x: hidden;
+    aside>div {
+        flex: 1 !important;
     }
 }
 
 aside {
     background-color: #c4d6ebc2;
     position: fixed;
-    height: 100vh;
+    height: 100%;
     width: 30%;
     top: 0;
     bottom: 0;
     left: 0;
-    display: inline-block;
-    backdrop-filter: blur(5px);
 }
 
 .description {
@@ -84,7 +83,6 @@ aside {
 }
 
 .social {
-    padding-top: 50px;
     width: 60%;
     margin: auto;
     display: flex;
@@ -92,8 +90,14 @@ aside {
 }
 
 .social img {
+    padding-top: 2em;
     width: 40px;
     height: 40px;
+    transition: transform .2s;
+}
+
+.social img:hover {
+    transform: scale(1.05);
 }
 
 .about {

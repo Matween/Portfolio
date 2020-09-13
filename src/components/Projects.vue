@@ -67,12 +67,12 @@ export default {
 <style>
 @media (max-width: 1200px) {
     .projects-col {
-        width: 100% !important;
+        width: 90% !important;
     }
 }
 
 .projects {
-    margin: 2em;
+    margin: 3em;
 }
 
 .title {

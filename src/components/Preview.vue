@@ -42,10 +42,9 @@ export default {
 }
 
 .preview-col>.preview-img {
-    height: 350px;
+    height: 250px;
     margin: auto;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 650px;
 }
 </style>

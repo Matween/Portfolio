@@ -16,14 +16,13 @@ export default {
 @media (max-width: 1200px) {
     section {
         width: 100vw !important;
-        float: none !important;
         margin-top: 100vh;
     }
 }
 
 section {
     width: 70%;
-    min-height: 100vh;
+    min-height: 100%;
     right: 0;
     top: 0;
     display: inline-block;
@@ -37,5 +36,6 @@ section {
     align-items: center;
     min-height: 100vh;
     padding: 2%;
+    overflow: auto;
 }
 </style>
