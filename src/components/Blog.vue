@@ -1,10 +1,7 @@
 <template>
 <div class="blog-posts">
-    <div class="title">
-        <h2>Blog</h2>
-    </div>
     <div class="blog-posts-row">
-        <Preview class="blog-posts-col" v-for="(post, index) in posts" v-bind:key="index" :preview="post" />
+        <Preview class="blog-posts-col" :preview="this.blog" v-on:click="openLink(this.blog.url)" />
     </div>
 </div>
 </template>
@@ -18,37 +15,17 @@ export default {
     },
     data() {
         return {
-            posts: [{
-                    name: 'Blog Post',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/1793525/pexels-photo-1793525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Blog Post',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/1793525/pexels-photo-1793525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Blog Post',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/1793525/pexels-photo-1793525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Blog Post',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/1793525/pexels-photo-1793525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Blog Post',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/1793525/pexels-photo-1793525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Blog Post',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/1793525/pexels-photo-1793525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                }
-            ]
+            blog: {
+                name: 'Blog',
+                img: 'https://lukaszadam.com/assets/downloads/old-computer-illustration.png',
+                description: 'Read my blog...',
+                url: 'https://matween.wordpress.com/'
+            }
+        }
+    },
+    methods: {
+        openLink(url) {
+            window.open(url, "_blank");
         }
     }
 }
@@ -83,6 +60,14 @@ export default {
     flex-flow: wrap row;
     align-items: center;
     justify-content: center;
+}
+
+.blog-posts-col {
+    width: 350px !important;
+}
+
+.blog-posts-col:hover {
+    cursor: pointer;
 }
 
 h2 {
