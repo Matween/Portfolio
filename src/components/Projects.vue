@@ -4,7 +4,7 @@
         <h2>Projects</h2>
     </div>
     <div class="projects-row">
-        <Preview class="projects-col" v-for="project in projects" v-bind:key="project" v-bind:preview="project" />
+        <Preview class="projects-col" v-for="project in projects" v-bind:key="project" v-bind:preview="project" v-on:click="openLink(project.url)" />
     </div>
 </div>
 </template>
@@ -16,51 +16,41 @@ export default {
     components: {
         Preview
     },
+    created() {
+        this.fetchProjects();
+    },
     data() {
         return {
-            projects: [{
-                    name: 'Test',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Test',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Test',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Test',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Test',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Test',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Test',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                },
-                {
-                    name: 'Test',
-                    description: 'Omg ftow. This looks awesome, or maybe not. Not sure. Lorem ipsum ftw.',
-                    img: 'https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-                }
-            ]
+            projects: []
         }
     },
+    methods: {
+        fetchProjects() {
+            fetch('https://api.github.com/users/Matween/repos?sort=created', {
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(proj => {
+                        let project = {
+                            name: proj.name,
+                            description: proj.description,
+                            url: proj.html_url,
+                            img: 'https://lukaszadam.com/assets/downloads/desk-illustration-2.svg'
+                        };
+                        this.projects.push(project)
+                    })
+
+                }).catch(error => {
+                    console.log(error)
+                })
+        },
+        openLink(url) {
+            window.open(url, "_blank");
+        }
+    }
 }
 </script>
 
@@ -73,6 +63,10 @@ export default {
 
 .projects {
     margin: 3em;
+}
+
+.projects-col:hover {
+    cursor: pointer;
 }
 
 .title {
